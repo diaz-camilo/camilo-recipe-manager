@@ -5,8 +5,8 @@ var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 
 const express = require('express');
-const path = require('path');
-var cors = require('cors');
+// const path = require('path');
+// var cors = require('cors');
 
 const app = express();
 
@@ -23,6 +23,10 @@ function errorHandler(err, req, res, next) {
 
 // Set app to use custome error handler
 app.use(errorHandler)
+
+app.get('/', (req, res) => {
+  res.send('ok')
+})
 
 const port = process.env.PORT || 8080; //http port
 app.listen(port);
